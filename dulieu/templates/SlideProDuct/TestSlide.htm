@@ -1,0 +1,72 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% block TestSlide %}
+<link rel="stylesheet" type="text/css" href="{% static 'css\test.css' %}">
+<h1>testsss</h1>
+
+<div class="container Khung1">
+    <div class="itemt">
+        <div class="item-product">
+            khung 1
+        </div>
+
+        <div class="item-product">
+            khung 2
+        </div>
+
+        <div class="item-product">
+            khung 3
+        </div>
+    </div>
+
+    <div class="itemt">
+        <div class="item-product">
+            khung 4
+        </div>
+
+        <div class="item-product">
+            khung 5
+        </div>
+
+        <div class="item-product">
+            khung 6
+        </div>
+    </div>
+
+    <div onclick="prev()" class="prev Khung1-nut">
+        <span>leff</span>
+    </div>
+    <div onclick="next()" class="next Khung1-nut">
+        <span>right</span>
+    </div>
+</div>
+
+
+<script>
+    var slideIndex=1
+    show(slideIndex)
+   function show(n){
+       var slide=$('.itemt')
+       if(n<0){slideIndex= slide.length-1}
+       if(n>=slide.length){slideIndex=0}
+   
+       for(var i=0;i<slide.length;i++){
+       var $item=$(slide[i])
+       $item.removeClass('itemt-active')
+       }
+       var $item1=$(slide[slideIndex])
+       $item1.addClass('itemt-active')
+   
+   }
+   
+   function next(){
+   slideIndex +=1
+   show(slideIndex)
+   }
+   function prev(){
+   slideIndex -=1
+   show(slideIndex)
+   }
+   
+   </script>
+{% endblock %}

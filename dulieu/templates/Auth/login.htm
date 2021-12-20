@@ -1,0 +1,32 @@
+{% extends 'base.htm' %}
+{% block login %}
+<div class="container" style="width:500px">
+    <h1>Đăng Nhập</h1>
+<form action="/login" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label>Tên Đăng Nhập:</label>
+    <input type="text" class="form-control" placeholder="Username" name="username">
+    <small  class="form-text text-muted">không chứa khoảng trống và ký tự đặc biệt</small>
+  </div>
+  <div class="form-group">
+    <label >Mật Khẩu:</label>
+    <input type="password" class="form-control"  placeholder="Password" name="password">
+    <small  class="form-text text-muted">Mật khẩu ít nhất 8 ký tự, chứa cả chữ và số</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary ">Đăng Ký Tài Khoản</button>
+   {% if error is not None %}
+  <p>  <small  class="form-text text-muted">{{error}}</small></p>
+  {% endif%}
+
+  {% if succes is not None %}
+  <p>  <small  class="form-text text-muted">{{succes}}</small></p>
+  {% endif%}
+
+</form>
+  {% if user is not None %}
+    {{user.username}}
+  {% endif %}
+</div>
+{% endblock %}

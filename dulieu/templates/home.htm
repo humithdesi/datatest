@@ -10,5 +10,10 @@
 {% for lop in lops %}
 <h2>{{lop.name}}</h2>
 {% endfor %}
+{% if user.is_authenticated %}
 
+  logout
+  {% else %}
+    login
+  {% endif %}
 {% endblock %}
