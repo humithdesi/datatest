@@ -1,3 +1,46 @@
+.Menu-V{display:none}
 .nav-link:hover{color:white}
 .nav-link{color:white}
 .nav-item{padding:10px}
+.ChanGaGoi-menu{margin-left:200px}
+.login-logout{margin-right:100px}
+@media only screen and (max-width: 1350px){
+  .ChanGaGoi-menu{margin-left:30px}
+}
+@media only screen and (max-width: 1200px){
+  .ChanGaGoi-menu{margin-left:30px}
+  .login-logout{margin-right:20px}
+}
+@media only screen and (max-width: 1100px){
+  .ChanGaGoi-menu{margin-left:30px}
+  .Menu-H{display:none}
+  .Menu-V{display:block;position:relative;}
+  .Menu-V-content{visibility:hiden;-webkit-animation: fadeIns 0.75s;
+      position:absolute;background-color:white;height:90vh;text-align:center;
+      width: 0px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right:0;top:60px;
+      border-radius:20px}
+  .Menu-V-content a {display:none;padding:10px}
+  .Menu-V-content a:hover {background-color:yellow}
+}
+@-webkit-keyframes fadeIns {
+    from { width:300px;
+
+     }
+      to { width:0px;
+      }
+
+}
+@-webkit-keyframes fadeax {
+    from { width:0px;
+
+     }
+      to { width:300px;
+      }
+
+}
+
+.Menu-V-content-active{visibility:visible;width:300px;-webkit-animation: fadeax 0.75s;}
+.Menu-V-content-active a{display:block}

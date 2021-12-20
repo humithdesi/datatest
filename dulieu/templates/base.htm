@@ -16,24 +16,39 @@
   {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/Menu.css' %}">
-<div class="d-flex justify-content-center align-items-center bg-warning" style="height:60px">
-  <div style="margin-left:200px" class="nav-item"><a class="nav-link">CHĂN GA GỐI</a></div>
-  <div class="nav-item"><a class="nav-link">ĐỆM</a></div>
-  <div class="nav-item"><a class="nav-link">BỘ SƯU TẬP</a></div>
-  <div class="nav-item"><a class="nav-link">PHỤ KIỆN</a></div>
-  <div class="nav-item"><a class="nav-link">KHUYẾN MÃI</a></div>
-  <div class="nav-item"><a class="nav-link">TIN TỨC</a></div>
+<div class="d-flex justify-content-center align-items-center bg-warning" style="height:60px,width:100%">
+  <div style="" class="nav-item ChanGaGoi-menu Menu-H"><a class="nav-link">CHĂN GA GỐI</a></div>
+  <div class="nav-item Menu-H"><a class="nav-link">ĐỆM</a></div>
+  <div class="nav-item Menu-H"><a class="nav-link">BỘ SƯU TẬP</a></div>
+  <div class="nav-item Menu-H"><a class="nav-link">PHỤ KIỆN</a></div>
+  <div class="nav-item Menu-H"><a class="nav-link">KHUYẾN MÃI</a></div>
+  <div class="nav-item Menu-H"><a class="nav-link">TIN TỨC</a></div>
 
   {% if user.is_authenticated %}
-  <div style="margin-left:auto" class="nav-item"><a class="nav-link">PROFILE YOUR</a></div>
-  <div style="margin-right:100px" class="nav-item"><a HREF="/logout" class="nav-link">LOGOUT</a></div>
+  <div style="margin-left:auto" class="nav-item Menu-H"><a class="nav-link">PROFILE YOUR</a></div>
+  <div style="" class="nav-item login-logout Menu-H"><a HREF="/logout" class="nav-link">LOGOUT</a></div>
   {% else %}
-  <div style="margin-left:auto" class="nav-item"><a HREF="/resign" class="nav-link">RESIGN</a></div>
-  <div style="margin-right:100px" class="nav-item"><a HREF="/login" class="nav-link">LOGIN</a></div>
+  <div style="margin-left:auto" class="nav-item Menu-H"><a HREF="/resign" class="nav-link">RESIGN</a></div>
+  <div style="" class="nav-item login-logout Menu-H"><a HREF="/login" class="nav-link">LOGIN</a></div>
   {% endif %}
-
+  <div style="margin-left:auto" class="nav-item Menu-V">
+      <a onclick="menuToggle()" HREF="#" class="nav-link">.......</a>
+      <div class="Menu-V-content">
+          {% if user.is_authenticated %}
+          <a class="">PROFILE YOUR</a>
+          <a HREF="/logout" class="">LOGOUT</a>
+          {% else %}
+          <a HREF="/resign" class="">RESIGN</a>
+          <a HREF="/login" class="">LOGIN</a>
+          {% endif %}
+      </div>
+  </div>
 </div>
-
+<script>
+function menuToggle(){
+$('.Menu-V-content').toggleClass('Menu-V-content-active')
+$('.Menu-V-content a').toggleClass('Menu-V-content-active a')}
+</script>
     {% MenuTop %}
     <h1>Hello, world!</h1>
     
