@@ -1,0 +1,12 @@
+.Khung1 {position: relative;}
+.Khung1-nut{position: absolute;}
+.prev{left: 0;top: 20%;}
+.next{right: 0;top: 20%;}
+.itemt {display: none;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 20px;
+    margin: 20px;
+    }
+
+.itemt-active{display:grid;}
