@@ -20,4 +20,4 @@ def ChanGaGoi(request):
         content={'filters':filters,'priceSelect':priceSelect,'priceSelectText':priceSelectText}
         return render(request,'Product/ChanGagoi.htm',content)
     except:
-        return Http404  
+        raise Http404() 

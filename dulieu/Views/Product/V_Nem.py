@@ -33,5 +33,5 @@ def Nem(request):
             content={'filters':filters,'priceSelect':priceSelect,'priceSelectText':priceSelectText,'page_obj': page_obj,'listTest':listTest}
             return render(request,'Product/Nem.htm',content)
         except :
-            return Http404('Trang Không Tồn tại')
+            return Http404()
         
