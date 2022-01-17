@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from ..Models.models import HocSinh,Lop
+from django.http import HttpResponse,Http404
 # Create your views here.
 def Home(request):
-    hosinhs=HocSinh.objects.all()
-    lops=Lop.objects.all()
-    print('ok thanh cong roi')
-    content={'hocsinhs':hosinhs,'lops':lops}
-    return render(request,'home.htm',content)
+    try:
+        return render(request,'home.htm')
+    except:
+        return Http404('Trang Không tồn tại')

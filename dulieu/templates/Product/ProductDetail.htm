@@ -1,0 +1,84 @@
+{% extends 'base.htm' %}
+{% block ProductDetail %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/ProductDetail.css' %}">
+<div class="container">
+    <div class='row '>
+        <div class="col-lg-4 col-12"><img class="img-fluid" src="/media/{{product.image}}"></div>
+        <div class="col-lg-8 col-12">
+            <h3 id='ProductName' style="color: rgb(124, 41, 192);" class=''>{{product.name}}</h3>
+            <li>Suspendisse quos? Tempus cras iure temporibus?
+            Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</li>
+            <li><strong>Thương Hiệu: <a  style="text-decoration: none;color: rgb(124, 41, 192)">{{product.thuongHieu}}</a></strong></li>
+            <li><strong>Giá: <span style="color: rgb(124, 41, 192)">${{product.price}}</span></strong></li>
+            <li><strong>Kích Thước:{% for size in sizes %} {{size}} {% endfor %}</strong></li>
+            <select id='ProductKichThuoc' class="form-select form-select-sm m-2" style="color: rgb(124, 41, 192);font-weight: bold;" name='kichthuoc'>
+                {% for size in sizes %}
+                <option  value="{{size}}">{{size}}</option>
+                {% endfor %}
+            </select>
+            <li><strong>Độ Dày:</strong></li>
+            <select id='ProductDoDay' class="form-select form-select-sm m-2" style="color: rgb(124, 41, 192);font-weight: bold;" name='doday'>
+                {% for doday in dodays %}
+                <option  value="{{doday}}">{{doday}}</option>
+                {% endfor %}
+            </select>
+            <div class='cart mt-2'>
+                <li>Số Lượng:</li>
+                  <div class='d-flex m-2'>
+                    <button id='minusId' class='btn btn-primary' onmouseup="clickMinus()">-</button>
+                    <input type="number" class="form-control mx-2" id="productNumber" value="1" min='1';">
+                    <button id="addId" class='btn btn-primary' onmouseup="clickAdd()">+</button>
+                  </div> 
+            </div>        
+            <button class="btn btn-warning mt-3 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
+        </div>
+    </div>
+</div>
+
+<div id='alert' class="alertNone alert alert-warning mt-3" style="text-align: center;" role="alert">
+    <strong>SẢN PHẨM ĐÃ ĐƯỢC THÊM VÀO GIỎ HÀNG, <a class="text-black" style="text-decoration: none;" href="/nem">VỀ TRANG TRƯỚC</a></strong>
+  </div>
+<script>
+     function pageRedirect() {
+        window.location.replace("/nem");
+    } 
+    
+    function alertShow(){
+        $('#alert').removeClass('alertNone')
+    }
+
+    function clickAdd(){
+        numberProduct=$('#addId').prev().val()
+        $('#addId').prev().val(Number(numberProduct)+1)
+    }
+    function clickMinus(){
+        numberProduct=$('#minusId').next().val()
+        if (Number(numberProduct)<=1){
+            $('#minusId').next().val(1)
+        }
+        else
+            {$('#minusId').next().val(Number(numberProduct)-1)}
+    }
+    function clickAddToCard (){
+        var ProductName= $('#ProductName').text()
+        var ProductDoDay= $('#ProductDoDay :selected').text()
+        var ProductNumber=$('#minusId').next().val()
+        var ProductKichThuoc=$('#ProductKichThuoc :selected').text()
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8000/card',
+            data: { 'ProductName':ProductName,
+            'ProductDoDay': ProductDoDay,
+            'ProductKichThuoc':ProductKichThuoc,
+            'ProductNumber':ProductNumber,
+            csrfmiddlewaretoken: '{{ csrf_token }}' },
+            success: function() {
+               alert('SẢN PHẨM ĐÃ THÊM VÀO GIỎ HÀNG, Về Trang Chủ')
+               alertShow()
+            }
+        })
+    }
+
+</script>
+{% endblock %}

@@ -41,6 +41,52 @@
     </div>
 </div>
 
+<div class="container d-flex justify-content-center">
+<div class="Slide-warp">
+    <div class="itemWarp">
+    <div class="itemTest">1</div>
+    <div class="itemTest">2</div>
+    <div class="itemTest">3</div>
+    <div class="itemTest">4</div>
+    <div class="itemTest">5</div>
+    <div class="itemTest">6</div>
+    <div class="itemTest">7</div>
+    </div>
+</div>
+</div>
+<button onclick="left()">Trái</button>
+<button onclick="right()">Phải</button>
+
+<script>
+    var itemWarp=$('.itemWarp')
+    var count=0
+    var countLast=$('.itemTest').length-1
+    function right(){
+        if (count>=countLast){
+            count=0
+            itemWarp.css({'margin-left':count +'px'})
+        }
+        else{
+        count++
+        itemWarp.css({'margin-left':-200*count +'px'})
+        }   
+    }
+    function left(){
+        if (count<=0){
+            count=countLast
+            itemWarp.css({'margin-left':-200*count +'px'})
+        }
+        else{
+        count--
+        itemWarp.css({'margin-left':-200*count +'px'})
+        }   
+    }
+
+
+    console.log()
+</script>
+
+
 
 <script>
     var slideIndex=1

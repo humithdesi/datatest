@@ -1,11 +1,11 @@
 {% extends 'base.htm' %}
 {% block resign %}
-<div class="container" style="width:500px">
+<div class="container margintop">
     <h1>Đăng Ký Tài Khoản</h1>
 <form action="/resign" method="post">
     {% csrf_token %}
   <div class="form-group">
-    <labe>Tên Đăng Nhập:</labe>
+    <label>Tên Đăng Nhập:</label>
     <input type="text" class="form-control" placeholder="Username" name="username">
     <small  class="form-text text-muted">không chứa khoảng trống và ký tự đặc biệt</small>
   </div>
@@ -28,5 +28,14 @@
 </form>
 </div>
 
+
+<style>
+.margintop{margin-top: 60px;
+  width:500px}
+@media only screen and (max-width: 480px){
+  .margintop{width:300px}}
+  @media only screen and (max-width: 768px){
+  .margintop{width:400px}}
+</style>
 
 {% endblock %}

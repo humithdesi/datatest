@@ -1,0 +1,10 @@
+h1{color:burlywood}
+.M-Top a {margin: 2px;}
+
+@media only screen and (max-width: 1200px){
+    .M-Top{margin-top: 40px}
+  }
+@media only screen and (max-width: 768px){
+    .M-Top a {font-size: x-small;}
+    .send {font-size: x-small;}
+}

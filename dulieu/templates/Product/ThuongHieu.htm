@@ -1,0 +1,19 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% block ThuongHieu %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/PageProduct.css' %}">
+<form method="get">
+  
+    <div class='selectta'>
+    Bộ Sưu Tập :{{filters.form.boSuuTap}}
+    </div>
+    <button type="submit">Search</button>
+</form>
+{% for product in filters.qs %}
+    {{ product.name }}
+{% endfor %}
+{% for product in products %}
+{{product.name}}
+{% endfor %}
+<h1>asdasd</h1>
+{% endblock%}

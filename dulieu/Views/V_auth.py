@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from ..FORMS.form_resign import ResignForm
+from django.http import HttpResponse,Http404
 # Create your views here.
 def LoginPage(request):
     if request.method=="POST":
@@ -16,13 +17,17 @@ def LoginPage(request):
         print(username,password)
         if user is not None:
             login(request, user)
-            succes='dang nhập thành công'
+            succes='Đăng nhập thành công'
         else:
             error='Tên đăng nhập hoặc mật khẩu không chính xác'
         content = {'error': error, 'succes': succes}
         return render(request, 'Auth/login.htm',content)
     else:
-        return render(request,'Auth/login.htm')
+        try:
+            return render(request,'Auth/login.htm')
+        except:
+            return Http404('Trang Không Tồn Tại')    
+
 from django.contrib.auth import logout
 def LogOutPage(request):
     logout(request)
@@ -66,8 +71,10 @@ def ResignPage(request):
         content={'error':error,'succes':succes}
         return render(request,'Auth/resign.htm',content)
     else:
+        try:
 
-
-        form=ResignForm()
-        content={'form':form,}
-        return render(request,'Auth/resign.htm',content)
+            form=ResignForm()
+            content={'form':form,}
+            return render(request,'Auth/resign.htm',content)
+        except:
+            return Http404('Trang Không Tồn Tại')    

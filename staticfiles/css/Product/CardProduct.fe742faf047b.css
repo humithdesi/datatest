@@ -1,0 +1,11 @@
+h1{color: burlywood;}
+li{list-style-type:none;font-weight: bold;}
+span{color: rgb(78, 76, 185);}
+.col-6 li:nth-child(1){font-size: 2em;}
+.container{margin-top: 1rem;}
+@media only screen and (max-width: 1100px){
+    .container{margin-top: 50px}
+    li{font-size: x-small;}
+    .col-6 li:nth-child(1){font-size: 1em;}
+}
+    

@@ -1,0 +1,188 @@
+{% extends 'base.htm' %}
+{% block CardProduct %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/CardProduct.css' %}">
+<a type="button" class=" position-relative p-2">
+    Card
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{thongbao}}
+      <span class="visually-hidden">unread messages</span>
+    </span>
+  </a>
+  
+<div class="container">
+    {% if products %}
+    <div class="row">
+        <div onmouseup="BoxCheckShow()" class='btn btn-primary'><strong>THANH TOÁN:</strong>
+                <span style="color: yellow; font-weight: bold;">$</span><span class="totalPay" style="color: yellow; font-weight: bold;">fdgfd</span>
+        </div>   
+    </div>
+    {% endif %}
+    {% for product in products %}
+
+    <div class="row mt-3">
+        <div class="col-3"><img class="img-thumbnail" src="/media/ImageProduct/cardtest-1.jpg"></div>
+        <div class="col-6">
+           <i class="fas fa-shopping-bag"></i>
+            <li  style="color: coral;">{{product.ProductName}}</li>
+            <li>Giá: <span class="price">{{product.ProductPrice}}</span></li>
+            <li>Số Lượng: <span class="number">{{product.ProductNumber}}</span></li>
+            <li>Chất Liệu: <span>{{product.ProductChatLieu}}</span> </li>
+            <li>Kích Thước: <span>{{product.ProductKichThuoc}}</span> </li>
+            <li>Độ Dày: <span>{{product.ProductDoDay}}</span> </li>
+            
+            
+        </div>
+        <div class="col-3">
+            <li  style="color: coral; font-size: large;">$<span class="totalDetail" style="color: coral; font-size: large;"></span></li>
+            <li><span>Miễn Phí Giao Hàng</span> </li>
+            <li ><a href="#" style="color: brown; text-decoration: none;">Xem Chi Tiết</a></li>
+            <br>
+            <form action="/card" method="get">
+                <select hidden class="form-select form-select-sm m-2" style="color: rgb(124, 41, 192);font-weight: bold;" name='ProductName'>
+                    <option  value="{{product.ProductName}}">{{product.ProductName}}</option>
+                </select>
+               
+            <button class="btn-sm btn-primary" type="submit"  ">delete</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    
+
+</div>
+
+<form action="/order" method="post">
+    {% csrf_token %}
+    <input name="test" value="con me no"> 
+    <button type="submit" class="btn btn-warning">send</button>
+</form>
+  
+<!-- Button trigger modal -->
+
+<div onmouseup="removeShow()" class='WarpDisplayCheck'></div>
+
+    <div class="Box-Check shadow">
+    <div class="form-group">
+      <label >address</label>
+      <input id='IdAddress' type="text" class="form-control"  placeholder="Enter AddDress">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label >Phone</label>
+      <input id='IdPhone' type="text" class="form-control" placeholder="Phone" required>
+    </div>
+    <div class="mt-2 d-flex justify-content-between">
+    <button onmouseup="OrderPost()" class="btn btn-warning SizeBtn" >Submit</button>
+    <button onmouseup="removeShow()" class="btn btn-primary SizeBtn " >Close</button>
+    </div>
+</div>
+ 
+
+<div  onmouseup="RedirectPage()" class='WarpDisplaySucces'></div>
+
+  <div  class=" BoxCheck-Succes bg-white shadow" >
+    <p>SẢN PHẨM SẼ ĐƯỢC CHUYỂN ĐẾN QUÝ KHÁCH SAU 2 NGÀY, VUI LÒNG KIỂM TRA TIN NHẤN </p>
+    <a href="/nem" class="btn btn-primary">Về Trang Chủ</a>
+  </div>
+
+
+<script>
+    var BoxCheck=$('.Box-Check')
+    var WarpDisplayCheck=$('.WarpDisplayCheck')
+    var BoxCheckSucces=$('.BoxCheck-Succes')
+    var WarpDisplaySucces=$('.WarpDisplaySucces')
+    function BoxCheckShow(){
+        WarpDisplayCheck.addClass('Show')
+        BoxCheck.addClass('Show')
+    }
+    function BoxCheckSuccesShow(){
+        WarpDisplaySucces.addClass('Show')
+        BoxCheckSucces.addClass('Show')
+    }
+
+    function removeShow(){
+        WarpDisplayCheck.removeClass('Show')
+        BoxCheck.removeClass('Show')
+    }
+
+    function RedirectPage(){
+        window.location.href = '/nem';
+    }
+
+    function OrderPost(e){
+       
+        var Address=$('#IdAddress').val()
+        var Phone=$('#IdPhone').val()
+        var Re=/[a-z]|\W/
+        
+       if(Address==''){
+           alert('Vui Lòng Cung Cấp Địa Chỉ')
+           e.preventDefault()
+       }
+       if(Phone==''){
+            alert('Vui Lòng Cung Cấp số Phone')
+            e.preventDefault()
+       }
+       if(Phone.length>8){
+           alert('Số Phone Không Hợp lệ')
+           console.log(Re.test(Phone))
+           e.preventDefault()
+       }
+
+       if(Re.test(Phone)==true){
+        alert('Số Phone Không Hợp lệ')
+        e.preventDefault()
+       }
+       else{
+        $.ajax({
+            type: 'POST',
+            url: '/order',
+            data: {
+            'Address':Address,
+           'Phone':Phone,
+            csrfmiddlewaretoken: '{{ csrf_token }}' },
+            success: function() {
+               alert('Order Thành công')
+               removeShow()
+               BoxCheckSuccesShow()
+            }
+        })
+       }
+        
+    }
+</script>
+<script>
+    function totalDetail(){
+        var i=0
+        var price = document.getElementsByClassName('price');
+        var sum=0
+        var number=document.getElementsByClassName('number');
+
+        var totalDetail=document.getElementsByClassName('totalDetail');
+        for (i;i<number.length;i++){
+            sum=Number(price[i].textContent)*Number(number[i].textContent)
+            totalDetail[i].innerHTML=sum
+        }
+        var sum=0
+    }
+    totalDetail()
+   function totalPay(){
+        var totalDetail=document.getElementsByClassName('totalDetail')
+        var i=0
+        var totalThanhtoan=document.getElementsByClassName('totalPay');
+        var sum=0
+        for(i;i<totalDetail.length;i++){
+            sum=sum+Number(totalDetail[i].textContent)
+            console.log(sum)
+        }
+        totalThanhtoan[0].innerHTML=sum
+    }
+      
+   totalPay()
+   function pageRedirect() {
+        window.location.replace("/card");
+    } 
+   
+</script>
+{% endblock %}

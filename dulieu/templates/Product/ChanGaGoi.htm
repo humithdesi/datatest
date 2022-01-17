@@ -1,0 +1,56 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% block ChanGaGoi %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/PageProduct.css' %}">
+<form method="get">
+  <div class="M-Top d-flex justify-content-center align-items-center ">
+    
+    <a class="btn">Bộ Sưu Tập {{filters.form.boSuuTap}}</a>
+    <a class='btn'>Thương Hiệu {{filters.form.thuongHieu}}</a>
+
+    <a class=btn>
+     Giá Sản Phẩm   
+    <select name="priceSelect">
+        {% if priceSelect %}
+        <option disabled selected value=1>{{priceSelectText}}</option>
+        {% endif %}
+        
+        <option value=1>1-500</option>
+        <option value=100>100-500</option>
+        <option value=200>200-500</option>
+    </select>
+    </a>
+      <a><button class="btn send" style="padding: px 20px; border:none; background-color: rgb(100, 216, 65);" type="submit">Lọc Sản Phẩm</button></a>
+    </div>
+    
+</form>
+
+<div class="container" style=" margin-top: 10px;">
+    <div class="row  justify-content-center row-cols-xxl-5 row-cols-xl-5 row-cols-lg-4  row-cols-md-3 row-cols-2 ">
+        {% for product in filters.qs %}
+        {% if product.loaiGa %}
+       
+        
+      <div class="col mt-2">
+        <div class="card shadow" style="width: 13rem;border-radius: 1em;">
+          <img src="/media/logo/cardtest-1.jpg" class="card-img-top" alt="...">
+          <div class="p-2">
+            <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
+            <h6 style="margin-top: -0.2em;color: coral;">${{product.price}}đ</h6>
+            <h6 style='margin-top: -0.3em;color: rgba(27, 29, 148, 0.712)'>Chất liệu: {{product.chatLieu}}</ps>
+            <h6 style="margin-top: -0.5em; font-size: small;color: rgba(27, 29, 148, 0.712)">Kích thước:</h6>
+            <p style="margin-top:-0.5em;font-size:x-small;">130x120cm 130x120cm 130x120cm</a></p>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Đặt Mua Ngay</a>
+          </div>
+        </div>
+      </div>
+     
+      {% endif %}
+      {% endfor %}
+     
+      
+    </div>
+    </div>
+
+    
+{% endblock%}

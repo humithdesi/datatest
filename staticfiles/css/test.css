@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+  }
+
 .Khung1 {position: relative;}
 .Khung1-nut{position: absolute;}
 .prev{left: 0;top: 20%;}
@@ -10,3 +14,23 @@
     }
 
 .itemt-active{display:grid;}
+
+
+.Slide-warp{
+    overflow:hidden;width: 200px;
+    
+}
+.itemWarp{
+    display: flex;
+    transition: 1s;
+    overflow-x: scroll;
+    margin-bottom: -50px;
+    }
+ 
+.itemTest{background-color:rgb(114, 70, 12);
+    height: 200px;width: 200px;;
+    flex-shrink: 0;
+   
+    
+
+}

@@ -1,0 +1,17 @@
+h1{color: burlywood;}
+li{list-style-type: none;}
+.form-control{width: 10em;}
+.form-select{width: 15em;}
+.container{margin-top: 1rem;}
+.Addtocard{width: 15em;}
+@media only screen and (max-width: 1100px){
+    .container{margin-top: 50px;}
+}
+@media only screen and (max-width: 576px){
+    li{font-size: small;}
+    .container{margin-top: 50px;}
+    .form-select{width: 100%;}
+    .form-control{width: 100%;}
+    .Addtocard{width: 100%;}
+}
+.alertNone{display: none;}

@@ -1,31 +1,57 @@
 .Menu-V{display:none}
 .nav-link:hover{color:white}
 .nav-link{color:white}
-.nav-item{padding:10px}
-.ChanGaGoi-menu{margin-left:200px}
+.nav-item{padding:0px}
+.ChanGaGoi-menu{margin-left: 100px;}
 .login-logout{margin-right:100px}
-@media only screen and (max-width: 1350px){
-  .ChanGaGoi-menu{margin-left:30px}
-}
-@media only screen and (max-width: 1200px){
-  .ChanGaGoi-menu{margin-left:30px}
-  .login-logout{margin-right:20px}
-}
 @media only screen and (max-width: 1100px){
-  .ChanGaGoi-menu{margin-left:30px}
+  .Menu-Main{position: fixed;left:0;top:0;z-index:1;}
+
+ 
   .Menu-H{display:none}
   .Menu-V{display:block;position:relative;}
-  .Menu-V-content{visibility:hiden;-webkit-animation: fadeIns 0.75s;
-      position:absolute;background-color:white;height:90vh;text-align:center;
+  .Menu-V-content{z-index:1;
+      visibility:hidden;
+      position:absolute;
+      height:90vh;
       width: 0px;
+      
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
       right:0;top:60px;
-      border-radius:20px}
-  .Menu-V-content a {display:none;padding:10px}
+      border-radius:20px 0px 0px 20px;
+      background-color:white;}
+  .Menu-V-content a {visibility: hidden;
+                    z-index:1;
+                    padding: 10px;
+                    padding-left: 70px;
+                    height: 0px;
+                    transition: 0.5s;}
   .Menu-V-content a:hover {background-color:yellow}
 }
-@-webkit-keyframes fadeIns {
+
+@media only screen and (max-width: 1350px){
+  
+  .login-logout{margin-right:50px}
+}
+@media only screen and (max-width: 1200px){
+  .ChanGaGoi-menu{margin-left: 40px;}
+  
+}
+
+@media only screen and (max-width: 726px){
+  .ChanGaGoi-menu{margin-left: 40px;}
+}
+
+.Menu-V-content-remove{position: absolute;display: none;
+      height: 90vh;
+      background-color: blue;
+      width: 2000px;
+      z-index:-1;;
+      right:0;
+      top:60px;
+      opacity: 0%;}
+      
+@keyframes fadeIns {
     from { width:300px;
 
      }
@@ -33,7 +59,7 @@
       }
 
 }
-@-webkit-keyframes fadeax {
+@keyframes fadeax {
     from { width:0px;
 
      }
@@ -42,5 +68,6 @@
 
 }
 
-.Menu-V-content-active{visibility:visible;width:300px;-webkit-animation: fadeax 0.75s;}
-.Menu-V-content-active a{display:block}
+.Menu-V-content-active{visibility:visible;width:300px;animation : fadeax 0.3s;}
+.Menu-V-content-active a{display: block; height:40px;visibility: visible; transition: 0.5s;text-decoration: none;font-weight: bold;}
+.Menu-V-content-remove-active{display: block;}

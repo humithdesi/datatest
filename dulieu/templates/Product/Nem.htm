@@ -1,0 +1,98 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% block Nem %}
+{% load tag_paginator  %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/PageProduct.css' %}">
+<form method="get">
+  <div class="M-Top d-flex justify-content-center align-items-center ">
+    
+    <a class="btn">Bộ Sưu Tập {{filters.form.boSuuTap}}</a>
+    <a class='btn'>Thương Hiệu {{filters.form.thuongHieu}}</a>
+
+    <a class=btn>
+     Giá Sản Phẩm   
+    <select name="priceSelect">
+        {% if priceSelect %}
+        <option disabled selected value=1>{{priceSelectText}}</option>
+        {% else %}
+        <option disabled selected value=1>1-500</option>
+        {% endif %}
+        
+        <option value=1>1-500</option>
+        <option value=100>100-500</option>
+        <option value=200>200-500</option>
+    </select>
+    </a>
+      <a><button class="btn send" style="padding: px 20px; border:none; background-color: rgb(100, 216, 65);" type="submit">Lọc Sản Phẩm</button></a>
+    </div>
+    
+</form>
+
+<div class="container" style=" margin-top: 10px;">
+    <div class="row  justify-content-center row-cols-xxl-5 row-cols-xl-5 row-cols-lg-4  row-cols-md-3 row-cols-2 ">
+        {% for product in page_obj %}
+        
+       
+        
+      <div class="col mt-2">
+        <div class="card shadow" style="width: 13rem;border-radius: 1em;">
+          <img src="/media/logo/cardtest-1.jpg" class="card-img-top" alt="...">
+          <div class="p-2">
+            <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
+            <h6 style="margin-top: -0.2em;color: coral;">${{product.price}}đ</h6>
+            <h6 style='margin-top: -0.3em;color: rgba(27, 29, 148, 0.712)'>Chất liệu: {{product.chatLieu}}</ps>
+            <h6 style="margin-top: -0.5em; font-size: small;color: rgba(27, 29, 148, 0.712)">Kích thước:</h6>
+            <p style="margin-top:-0.5em;font-size:x-small;">130x120cm 130x120cm 130x120cm</a></p>
+            <a href="/sanpham/{{product.slug}}" class="btn" style="width: 100%;color:white; background-color: rgb(131, 127, 127);">Đặt Mua Ngay</a>
+          </div>
+        </div>
+      </div>
+     
+      {% endfor %}
+     
+    
+    </div>
+    </div>
+
+    {% for contact in page_obj %}
+    {{ contact.name }}<br>
+    {% endfor %}
+{% if page_obj %}
+    <ul class="pagination d-flex justify-content-center">
+      
+          {% if page_obj.has_previous %}
+              <li>
+                <a class="page-link" href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; first</a>
+              </li>
+              <li>
+                <a class="page-link" href="{% my_url page_obj.previous_page_number 'page' request.GET.urlencode %}">previous</a>
+              </li>
+          {% endif %}
+
+              {% for i in page_obj.paginator.page_range %}
+              <li class=''>
+                <a class="page-link" {% if page_obj.number == i %} style="background-color:rgb(156, 95, 95) ;color:white" {% endif %}}
+                href="{% my_url i 'page' request.GET.urlencode %}">{{ i }}</a> 
+              </li>
+              {% endfor %}
+  
+          {% if page_obj.has_next %}
+              <li class="">
+                <a class="page-link" href="{% my_url page_obj.next_page_number 'page' request.GET.urlencode %}">next</a>
+              </li>
+              <li class="">
+                <a class="page-link" href="{% my_url page_obj.paginator.num_pages 'page' request.GET.urlencode %}">last &raquo;</a>
+              </li>
+          {% endif %}
+      
+    </ul>
+ {% else %}
+ <div style="
+ text-align: center;">
+
+<h1>Sản Phẩm Bạn Tìm Không Tồn Tại</h1>
+<h3><a href="/"> Về Trang Chủ </a></h3>
+</div>
+ {% endif %}
+  
+{% endblock%}

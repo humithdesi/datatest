@@ -1,9 +1,9 @@
 {% extends 'base.htm' %}
 {% block login %}
-<div class="container" style="width:500px">
+<div class="container margintop">
     <h1>Đăng Nhập</h1>
 <form action="/login" method="post">
-    {% csrf_token %}
+    {% csrf_token %} 
   <div class="form-group">
     <label>Tên Đăng Nhập:</label>
     <input type="text" class="form-control" placeholder="Username" name="username">
@@ -15,7 +15,7 @@
     <small  class="form-text text-muted">Mật khẩu ít nhất 8 ký tự, chứa cả chữ và số</small>
   </div>
 
-  <button type="submit" class="btn btn-primary ">Đăng Ký Tài Khoản</button>
+  <button type="submit" class="btn btn-primary ">Đăng nhập Tài Khoản</button>
    {% if error is not None %}
   <p>  <small  class="form-text text-muted">{{error}}</small></p>
   {% endif%}
@@ -25,8 +25,18 @@
   {% endif%}
 
 </form>
-  {% if user is not None %}
-    {{user.username}}
-  {% endif %}
+
 </div>
+
+
+
+<style>
+.margintop{margin-top: 60px;
+  width:500px}
+@media only screen and (max-width: 480px){
+  .margintop{width:300px}}
+  @media only screen and (max-width: 768px){
+  .margintop{width:400px}}
+</style>
+
 {% endblock %}
