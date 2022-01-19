@@ -67,7 +67,7 @@
         var ProductKichThuoc=$('#ProductKichThuoc :selected').text()
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/card',
+            url: '/card',
             data: { 'ProductName':ProductName,
             'ProductDoDay': ProductDoDay,
             'ProductKichThuoc':ProductKichThuoc,
