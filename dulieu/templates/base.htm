@@ -23,7 +23,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/Menu.css' %}">
 <div class="d-flex justify-content-center align-items-center bg-warning Menu-Main" style="height:40px;width:100%">
-  <div class="nav-item ChanGaGoi-menu Menu-H" style="width:150px;"><a class="nav-link"><img class="img-fluid" src="{% static 'media/logo/LOGO_BED_LINH.png' %}"></a></div>
+  <div class="nav-item ChanGaGoi-menu Menu-H" style="width:150px;"><a class="nav-link"><img class="img-fluid" src="/media/logo/LOGO_BED_LINH.png"></a></div>
   <div class="nav-item Menu-H"><a href="/changagoi" class="nav-link">CHĂN GA GỐI</a></div>
   <div class="nav-item Menu-H"><a href="/nem" class="nav-link">ĐỆM</a></div>
   <div class="nav-item Menu-H"><a class="nav-link">BỘ SƯU TẬP</a></div>
@@ -94,11 +94,13 @@ $('.Menu-V-content-remove').toggleClass('Menu-V-content-remove-active')
     {% endblock %}
 
     {% block ChanGaGoi %}
-    {% endblock%}
+    {% endblock %}
 
     {% block Nem %}
-    {% endblock%}
+    {% endblock %}
     {% block ThuongHieu %}
+    {% endblock %}
+    {% block BoSuuTap %}
     {% endblock %}
 
     {% block ProductDetail %}

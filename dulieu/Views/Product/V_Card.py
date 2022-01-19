@@ -41,4 +41,4 @@ def CardProduct(request):
             
             return render(request, 'Product/CardProduct.htm',content)
         except:
-            return Http404('Trang Không Tồn Tại')    
+            raise Http404()   
