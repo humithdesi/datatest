@@ -20,7 +20,7 @@ def Nem(request):
             products=Product.objects.all().filter(price__gt=priceSelect).filter(loaiGa=None)
             filters=ProductFilter(request.GET,queryset=products)
 
-            paginator_filter = Paginator(filters.qs,1) 
+            paginator_filter = Paginator(filters.qs,3) 
 
             page_number = request.GET.get('page')
             page_obj =paginator_filter.get_page(page_number)
