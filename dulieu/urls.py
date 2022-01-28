@@ -11,7 +11,7 @@ from .Views.Product.V_Card import CardProduct
 from .Views.Product.V_Order import OrderProduct
 
 urlpatterns = [
-    path('',Home,name='homepage'),
+    path('/',Home,name='homepage'),
     path('test',TestSlide,name='testpage'),
     path('login',LoginPage,name='loginpage'),
     path('resign',ResignPage,name='resignpage'),
