@@ -1,0 +1,18 @@
+.Image-Warp{overflow: hidden;
+    height: 10rem;}
+    .Movie-1 {
+        animation-name: slide;
+        animation-duration: 50s;
+        animation-iteration-count: infinite;
+      }
+      .Movie-1:hover{ animation-play-state: paused;}  
+@keyframes slide {
+       50%{margin-left: -50rem;}
+       100%{margin-left: 0rem;}
+      }
+      ul{list-style-type: none;}
+      li{list-style-type: none;}
+      a{text-decoration: none;}
+      @media only screen and (max-width: 768px){
+        .HomeSlide1{display: none;}
+      }

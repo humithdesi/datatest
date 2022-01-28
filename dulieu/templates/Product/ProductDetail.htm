@@ -2,7 +2,8 @@
 {% block ProductDetail %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/ProductDetail.css' %}">
-<div class="container">
+<div style='background-color: chartreuse; height: 100vh;'>
+<div class="p-4" style='background-color: chartreuse'>
     <div class='row '>
         <div class="col-lg-6 col-12"><img class="img-fluid" src="{% static 'media/logo/cardtest-1.jpg' %}"></div>
         <div class="col-lg-6 col-12">
@@ -31,14 +32,15 @@
                     <button id="addId" class='btn btn-primary' onmouseup="clickAdd()">+</button>
                   </div> 
             </div>        
-            <button class="btn btn-warning mt-3 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
+            <button class="btn btn-primary mt-3 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
         </div>
     </div>
 </div>
 
 <div id='alert' class="alertNone alert alert-warning mt-3" style="text-align: center;" role="alert">
-    <strong>SẢN PHẨM ĐÃ ĐƯỢC THÊM VÀO GIỎ HÀNG, <a class="text-black" style="text-decoration: none;" href="/nem">VỀ TRANG TRƯỚC</a></strong>
+    <strong>SẢN PHẨM ĐÃ ĐƯỢC THÊM VÀO GIỎ HÀNG, <a class="text-black" style="text-decoration: none;" href="/">VỀ TRANG CHỦ</a></strong>
   </div>
+</div>  
 <script>
      function pageRedirect() {
         window.location.replace("/nem");

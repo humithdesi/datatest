@@ -18,7 +18,6 @@
 
 .Slide-warp{
     overflow:hidden;width: 200px;
-    
 }
 .itemWarp{
     display: flex;
@@ -30,7 +29,4 @@
 .itemTest{background-color:rgb(114, 70, 12);
     height: 200px;width: 200px;;
     flex-shrink: 0;
-   
-    
-
 }

@@ -1,0 +1,20 @@
+.titleSlide{margin-top: 20px;}
+.ProductMovie{margin-left: 0px;transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;}
+.Product1-Hidden {margin-left: -795px;}
+.NextButTon{position:absolute;;width:7em;right: 7em;}
+
+@media only screen and (max-width: 1400px){
+    .NextButTon{right: 6em;}
+  }
+  @media only screen and (max-width: 1200px){
+    .NextButTon{right: 7em;}
+  }
+  @media only screen and (max-width: 992px){
+    .NextButTon{right: 8em;}
+  }
+  @media only screen and (max-width: 768px){
+    .NextButTon{right: 7em;}
+  }  
+  @media only screen and (max-width: 576px){
+    .NextButTon{display:none}
+  }  
