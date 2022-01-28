@@ -5,4 +5,4 @@ def Home(request):
     try:
         return render(request,'home.htm')
     except:
-        return Http404('Trang Không tồn tại')
+        raise Http404('Trang Không tồn tại')
