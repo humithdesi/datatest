@@ -2,7 +2,14 @@
 .ProductMovie{margin-left: 0px;transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;}
 .Product1-Hidden {margin-left: -795px;}
 .NextButTon{width:7em;}
-
+.ScrollHidden{overflow-x: scroll;}
+.ScrollHidden::-webkit-scrollbar {
+  display: none;
+}
+.ScrollHidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 @media only screen and (max-width: 1400px){
     
   }
