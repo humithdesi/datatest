@@ -1,0 +1,18 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% block home %}
+{% load tag_homeslide %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Product/CardProduct.css' %}">
+
+<div class='container Home-Slide-1'>
+  {% homeslide1 %}
+</div>
+<div class='Home-Slide-2' style="margin-top: 10px;">
+  {% homeslide2 %}
+</div>
+<div class='Home-Slide-4' >
+  {% homeslide3 %}
+</div>
+
+{% endblock %}
