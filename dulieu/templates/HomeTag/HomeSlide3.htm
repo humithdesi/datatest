@@ -1,7 +1,7 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Home/HomeSlide3.css' %}">
 <h2 class="titleSlide" style="font-weight: bold; text-align: center; color: burlywood;">CHĂN, GA, GỐI</h2>
-<div class="container" style="margin-top:-2px;border: 1px solid rgb(224, 208, 208);border-radius:5px; overflow: hidden;width: 100%;position: relative;">
+<div class="container" style="margin-top:-2px; overflow: hidden;width: 100%">
     <div class="d-flex " style="overflow: hidden;">
         <div class=" d-flex ProductMovie1 ">
             {% for product in products %}
@@ -42,15 +42,13 @@
             <div class="Product1 d-flex justify-content-center align-items-center">
                 <button class="btn btn-primary" style="height: 22em;"><p>Xem</p> Thêm</button>
             </div>
-        </div>
-
-        
+        </div>       
     </div>
-    
+    <div class="row justify-content-end" >
+        <button style="margin:10px 10px 0 0;" onmouseup="nextProduct()" class="NextButTon btn btn-primary">NEXT</button>
+    </div>    
 </div>
-<div style="position: relative;">
-    <button onmouseup="nextProduct2()" class="NextButTon btn btn-primary">NEXT</button>
-</div>
+
 
 <script>
     function nextProduct2(){
