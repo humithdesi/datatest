@@ -1,5 +1,5 @@
 from django.urls import path
-from .Views.V_home import Home
+from .Views.V_home import HomePage
 from .Views.V_TestSlide import TestSlide
 from .Views.V_auth import LoginPage,ResignPage,LogOutPage
 from .Views.Product.V_Nem import Nem
@@ -11,7 +11,7 @@ from .Views.Product.V_Card import CardProduct
 from .Views.Product.V_Order import OrderProduct
 
 urlpatterns = [
-    path('',Home,name='homepage'),
+    path('',HomePage,name='homepage'),
     path('test',TestSlide,name='testpage'),
     path('login',LoginPage,name='loginpage'),
     path('resign',ResignPage,name='resignpage'),
