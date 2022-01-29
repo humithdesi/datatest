@@ -38,7 +38,7 @@ def ThuongHieu(request,slug):
             'listTest':listTest,
             'thuonghieu':getthuonghieu
             }
-            return render(request,'Product/ThuongHieu.htm',content)
+            return render(request,'datatest/Product/ThuongHieu.htm',content)
     except:
             raise Http404()
     

@@ -34,7 +34,7 @@ def BoSuuTap(request,slug):
             print(listTest) 
             content={'filters':filters,'priceSelect':priceSelect,'priceSelectText':priceSelectText,
             'page_obj': page_obj,'listTest':listTest,'bosuutap':getBoSuuTap}
-            return render(request,'Product/BoSuuTap.htm',content)
+            return render(request,'datatest/Product/BoSuuTap.htm',content)
     except:
             raise Http404()
     

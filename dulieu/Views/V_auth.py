@@ -21,10 +21,10 @@ def LoginPage(request):
         else:
             error='Tên đăng nhập hoặc mật khẩu không chính xác'
         content = {'error': error, 'succes': succes}
-        return render(request, 'Auth/login.htm',content)
+        return render(request, 'datatest/Auth/login.htm',content)
     else:
         try:
-            return render(request,'Auth/login.htm')
+            return render(request,'datatest/Auth/login.htm')
         except:
             return Http404('Trang Không Tồn Tại')    
 
@@ -69,12 +69,12 @@ def ResignPage(request):
 
         print(username)
         content={'error':error,'succes':succes}
-        return render(request,'Auth/resign.htm',content)
+        return render(request,'datatest/Auth/resign.htm',content)
     else:
         try:
 
             form=ResignForm()
             content={'form':form,}
-            return render(request,'Auth/resign.htm',content)
+            return render(request,'datatest/Auth/resign.htm',content)
         except:
             return Http404('Trang Không Tồn Tại')    

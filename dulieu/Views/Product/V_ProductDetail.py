@@ -9,4 +9,4 @@ def ProductDetail(request, slug):
     except Product.DoesNotExist:
         raise Http404('Sản Phẩm Không Tồn tại')
 
-    return render(request, 'Product/ProductDetail.htm', context={'product': product,'sizes':sizes,'dodays':dodays})
+    return render(request, 'datatest/Product/ProductDetail.htm', context={'product': product,'sizes':sizes,'dodays':dodays})
