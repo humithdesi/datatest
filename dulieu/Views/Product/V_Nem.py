@@ -31,7 +31,7 @@ def Nem(request):
             listTest=[1+i for i in range (page_obj.paginator.num_pages ) ]  
             print(listTest) 
             content={'filters':filters,'priceSelect':priceSelect,'priceSelectText':priceSelectText,'page_obj': page_obj,'listTest':listTest}
-            return render(request,'datatest/Product/Nem.htm',content)
+            return render(request,'dulieu/Product/Nem.htm',content)
         except :
             raise Http404()
         

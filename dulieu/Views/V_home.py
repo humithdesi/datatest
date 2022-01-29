@@ -4,4 +4,4 @@ from django.shortcuts import render
 def HomePage(request):
         a=12
         content={'a':a}
-        return render (request,'datatest/hometag/home1.html',content)
+        return render (request,'dulieu/hometag/home1.html',content)

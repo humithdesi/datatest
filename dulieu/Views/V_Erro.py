@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def Error(request, exception):
-    return render(request, 'datatest/Error.htm',{'loi':exception})
+    return render(request, 'dulieu/Error.htm',{'loi':exception})

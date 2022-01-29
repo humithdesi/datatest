@@ -25,7 +25,7 @@ def CardProduct(request):
 
         products=request.session['card']
         content={'products':products}
-        return render(request, 'datatest/Product/CardProduct.htm',content)
+        return render(request, 'dulieu/Product/CardProduct.htm',content)
     else:
         try:
             delProduct=request.GET.get('ProductName')
@@ -39,6 +39,6 @@ def CardProduct(request):
             thongbao=len(products)
             content={'products':products,'thongbao':thongbao}
             
-            return render(request, 'datatest/Product/CardProduct.htm',content)
+            return render(request, 'dulieu/Product/CardProduct.htm',content)
         except:
             raise Http404()   
