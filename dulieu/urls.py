@@ -1,5 +1,5 @@
 from django.urls import path
-from .Views.V_home import HomePage
+from .Views.Home.V_home import HomePage
 from .Views.V_TestSlide import TestSlide
 from .Views.V_auth import LoginPage,ResignPage,LogOutPage
 from .Views.Product.V_Nem import Nem
