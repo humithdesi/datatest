@@ -36,8 +36,7 @@ def CardProduct(request):
                 del request.session['card'][delProduct]
                 return redirect('cardpage')
             products=request.session['card'].values()
-            thongbao=len(products)
-            content={'products':products,'thongbao':thongbao}
+            content={'products':products}
             
             return render(request, 'dulieu/Product/CardProduct.htm',content)
         except:

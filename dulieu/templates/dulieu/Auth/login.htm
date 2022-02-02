@@ -1,5 +1,7 @@
 {% extends 'base.htm' %}
 {% block login %}
+{% load tag_menu %}
+{% Menu %}
 <div class="container margintop">
     <h1>Đăng Nhập</h1>
 <form action="/login" method="post">

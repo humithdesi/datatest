@@ -1,15 +1,9 @@
 {% extends 'base.htm' %}
 {% block CardProduct %}
 {% load static %}
+{% load tag_menu %}
+{% Menu %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/CardProduct.css' %}">
-<a type="button" class=" position-relative p-2">
-    Card
-    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      {{thongbao}}
-      <span class="visually-hidden">unread messages</span>
-    </span>
-  </a>
-  
 <div class="container">
     {% if products %}
     <div class="row">
@@ -52,11 +46,6 @@
 
 </div>
 
-<form action="/order" method="post">
-    {% csrf_token %}
-    <input name="test" value="con me no"> 
-    <button type="submit" class="btn btn-warning">send</button>
-</form>
   
 <!-- Button trigger modal -->
 

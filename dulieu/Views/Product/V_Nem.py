@@ -16,7 +16,7 @@ def Nem(request):
                 priceSelectText='100-500'
             elif priceSelect=='200':
                 priceSelectText='200-500'
-            print (priceSelect)
+            
             products=Product.objects.all().filter(price__gt=priceSelect).filter(loaiGa=None)
             filters=ProductFilter(request.GET,queryset=products)
 
@@ -24,12 +24,10 @@ def Nem(request):
 
             page_number = request.GET.get('page')
             page_obj =paginator_filter.get_page(page_number)
-            print(type(page_obj.paginator.num_pages))
-            for i in range(page_obj.paginator.num_pages):
-                print(1+i)
+            
 
             listTest=[1+i for i in range (page_obj.paginator.num_pages ) ]  
-            print(listTest) 
+            
             content={'filters':filters,'priceSelect':priceSelect,'priceSelectText':priceSelectText,'page_obj': page_obj,'listTest':listTest}
             return render(request,'dulieu/Product/Nem.htm',content)
         except :

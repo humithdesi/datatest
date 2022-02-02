@@ -1,8 +1,9 @@
+a{text-decoration: none;}
 .Menu-V{display:none}
 .nav-link:hover{color:white}
 .nav-link{color:white}
 .nav-item{padding:0px}
-.ChanGaGoi-menu{margin-left: 100px;}
+.ChanGaGoi-menu{margin-left: 80px;}
 .login-logout{margin-right:100px}
 @media only screen and (max-width: 1100px){
   .Menu-Main{position: fixed;left:0;top:0;z-index:1;}
@@ -30,12 +31,12 @@
 }
 
 @media only screen and (max-width: 1350px){
-  
-  .login-logout{margin-right:50px}
+  .ChanGaGoi-menu{margin-left: 10px;}
+  .login-logout{margin-right:20px}
 }
 @media only screen and (max-width: 1200px){
-  .ChanGaGoi-menu{margin-left: 40px;}
-  
+  .ChanGaGoi-menu{margin-left: 0px;}
+  .login-logout{margin-right:0px}
 }
 
 @media only screen and (max-width: 726px){

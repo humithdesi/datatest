@@ -51,6 +51,7 @@ class Product(models.Model):
     price=models.IntegerField()
     discount=models.IntegerField(blank=True,null=True)
     image=models.ImageField(upload_to='ImageProduct')
+    count_view=models.IntegerField(default=0)
 
     boSuuTap=models.ForeignKey(BoSuuTap,on_delete=models.CASCADE,default=None)
     thuongHieu=models.ForeignKey(ThuongHieu,on_delete=models.CASCADE,default=None)
