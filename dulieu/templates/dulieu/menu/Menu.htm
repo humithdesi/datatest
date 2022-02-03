@@ -49,21 +49,21 @@
 
 
 
-  <div class="nav-item ChanGaGoi-menu Menu-V""><a class="m-4" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></div>
+  <div class="nav-item ChanGaGoi-menu Menu-V""><a href="/" class="m-4" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></div>
   {% if countProduct %}
   <div style="margin-left: auto;" class="nav-item Menu-V"><a href="/card" class="position-relative" style="font-weight: bold;color: chartreuse;">GIỎ HÀNG
     <span class="position-absolute bg-primary" style="color: rgb(255, 255, 255);top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
     {{countProduct}}
     </span></a></div>
     {% else %}
-    <div style="margin-left: auto;"  class=" Menu-V"><a class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
+    <div style="margin-left: auto;"  class=" Menu-V"><a href="/card" class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
     {% endif %}
   <div class="nav-item Menu-V">
       <a onclick="menuToggle()" HREF="#" class="mx-4" style="font-weight: bold;color: chartreuse;padding-right: 10px;">MENU</a>
       <div onclick="menuToggle()" class="Menu-V-content-remove">
 
       </div>
-      <div class="Menu-V-content">
+      <div class="Menu-V-content shadow">
           <a href="/changagoi" class="">Chăn Ga Gối</a>
           <a href="/nem" class="">Nệm</a>
           {% if user.is_authenticated %}

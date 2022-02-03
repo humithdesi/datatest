@@ -10,7 +10,7 @@ li{list-style-type: none;}
 @media only screen and (max-width: 576px){
     li{font-size: small;}
     .container{margin-top: 50px;}
-    .form-select{width: 100%;}
+    .form-select{width: 95%;}
     .form-control{width: 100%;}
     .Addtocard{width: 100%;}
 }

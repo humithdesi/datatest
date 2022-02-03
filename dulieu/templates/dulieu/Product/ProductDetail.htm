@@ -4,11 +4,11 @@
 {% load tag_menu %}
 {% Menu %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/ProductDetail.css' %}">
-<div style='background-color: rgba(70, 207, 70, 0.747);'>
+<div>
 <div class="p-4" >
     <div class='row '>
-        <div class="col-lg-6 col-12"><img class="img-fluid" src="{% static 'media/logo/cardtest-1.jpg' %}"></div>
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-5 col-12 d-flex justify-content-center align-items-center"><img class="img-fluid" src="{% static 'media\IMAGE_PTS\sizemobi1.jpg' %}"></div>
+        <div class="col-lg-7 col-12">
             <h3 id='ProductName' style="color: rgb(124, 41, 192);" class=''>{{product.name}}</h3>
             <li>Suspendisse quos? Tempus cras iure temporibus?
             Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</li>
@@ -34,7 +34,7 @@
                     <button id="addId" class='btn btn-primary' onmouseup="clickAdd()">+</button>
                   </div> 
             </div>        
-            <button class="btn btn-primary mt-3 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
+            <button class="btn btn-primary mt-1 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
         </div>
     </div>
 </div>
