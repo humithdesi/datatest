@@ -1,12 +1,13 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Home/HomeSlide3.css' %}">
-<h2 class="titleSlide" style="font-weight: bold; text-align: center; color: burlywood;">CHĂN, GA, GỐI</h2>
+
 <div class="container" style="margin-top:-2px; overflow: hidden;width: 100%">
+    <h2 class="titleSlide" style="font-weight: bold;color: chocolate;">CHĂN,GA,GỐI</h2>
     <div class="d-flex ScrollHidden" >
         <div class=" d-flex ProductMovie1 ">
             {% for product in products %}
             <div class="Product1 m-1">
-                <div class="card shadow" style="width: 12rem;border-radius: 1em;">
+                <div class="card" style="width: 12rem;border-radius: 1em;">
                 <img src="{% static 'media/logo/cardtest-1.jpg' %}" class="card-img-top" alt="...">
                 <div class="p-2">
                   <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
@@ -14,7 +15,7 @@
                   <h6 style='margin-top: -0.3em;color: rgba(27, 29, 148, 0.712)'>Chất liệu: {{product.chatLieu}}</ps>
                   <h6 style="margin-top: -0.5em; font-size: small;color: rgba(27, 29, 148, 0.712)">Kích thước:</h6>
                   <p style="margin-top:-0.5em;font-size:x-small;">130x120cm 130x120cm 130x120cm</a></p>
-                  <a href="/sanpham/{{product.slug}}" class="btn" style="width: 100%;color:white; background-color: rgb(131, 127, 127);">Đặt Mua Ngay</a>
+                  <a href="/sanpham/{{product.slug}}" class="btn" style="width: 100%;color:white;background-color: rgb(121, 11, 211);">Đặt Mua Ngay</a>
                 </div>
                 </div>
             </div>
@@ -26,7 +27,7 @@
 
             {% for product in products %}
             <div class="Product1 m-1">
-                <div class="card shadow" style="width: 12rem;border-radius: 1em;">
+                <div class="card" style="width: 12rem;border-radius: 1em;">
                 <img src="{% static 'media/logo/cardtest-1.jpg' %}" class="card-img-top" alt="...">
                 <div class="p-2">
                   <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
@@ -34,7 +35,7 @@
                   <h6 style='margin-top: -0.3em;color: rgba(27, 29, 148, 0.712)'>Chất liệu: {{product.chatLieu}}</ps>
                   <h6 style="margin-top: -0.5em; font-size: small;color: rgba(27, 29, 148, 0.712)">Kích thước:</h6>
                   <p style="margin-top:-0.5em;font-size:x-small;">130x120cm 130x120cm 130x120cm</a></p>
-                  <a href="/sanpham/{{product.slug}}" class="btn" style="width: 100%;color:white; background-color: rgb(131, 127, 127);">Đặt Mua Ngay</a>
+                  <a href="/sanpham/{{product.slug}}" class="btn" style="width: 100%;color:white;background-color: rgb(121, 11, 211);">Đặt Mua Ngay</a>
                 </div>
                 </div>
             </div>

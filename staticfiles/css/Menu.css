@@ -14,12 +14,9 @@ a{text-decoration: none;}
   .Menu-V-content{z-index:1;
       visibility:hidden;
       position:absolute;
-      height:90vh;
+      height:100vh;top:40px;
       width: 0px;
-      
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      right:0;top:60px;
-      border-radius:20px 0px 0px 20px;
+      right:0;
       background-color:white;}
   .Menu-V-content a {visibility: hidden;
                     z-index:1;
@@ -44,12 +41,12 @@ a{text-decoration: none;}
 }
 
 .Menu-V-content-remove{position: absolute;display: none;
-      height: 90vh;
+      height: 100vh;
       background-color: blue;
       width: 2000px;
       z-index:-1;;
       right:0;
-      top:60px;
+      
       opacity: 0%;}
       
 @keyframes fadeIns {

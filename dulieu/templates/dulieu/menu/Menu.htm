@@ -1,20 +1,42 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Menu.css' %}">
-<div class="d-flex justify-content-center align-items-center bg-warning Menu-Main" style="height:40px;width:100%">
-  <div class="nav-item ChanGaGoi-menu Menu-H" style="width:150px;"><a class="nav-link"><img class="img-fluid" src="{% static 'media/logo/LOGO_BED_LINH.png' %}"></a></div>
-  <div class=" Menu-H" style="margin-left: 40px;"><a href="/changagoi" class="text-black mx-2" style="font-weight: bolder;">CHĂN GA GỐI</a></div>
-  <div class=" Menu-H"><a href="/nem" class="text-black mx-2" style="font-weight: bolder;">ĐỆM</a></div>
-  <div class=" Menu-H"><a class="text-black mx-2" style="font-weight: bolder;">BỘ SƯU TẬP</a></div>
-  <div class=" Menu-H"><a class="text-black mx-2" style="font-weight: bolder;">PHỤ KIỆN</a></div>
-  <div class=" Menu-H"><a class="text-black mx-2" style="font-weight: bolder;">KHUYẾN MÃI</a></div>
-  <div class=" Menu-H"><a class="text-black mx-2" style="font-weight: bolder;">TIN TỨC</a></div>
+<div class="Menu-H" style="background-color: #0050c2; height: 120px;" >
+  <div class="d-flex">
+  <div class="d-flex flex-column justify-content-center" style="margin-left: 80px;">
+    <h2><a class="" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></h2>
+    <li style="list-style-type: none;font-weight: bold;"><a style="color:chartreuse">Ngủ ngon, đủ giấc</a></li>
+    
+  </div>
+  <div style="margin-left: auto;;"><img style="height: 120px;" class="" src="{% static 'media\IMAGE_PTS\baner_changagoi.jpg' %}" ></div>
+  <div style=" margin-right: 40px"><img style="height: 120px;" class="" src="{% static 'media\IMAGE_PTS\baner_changagoi1.jpg' %}" ></div>
+  <div class="d-flex flex-column justify-content-center" style="margin-right: 80px;">
+    <h2><a class="" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></h2>
+    <li style="list-style-type: none;font-weight: bold;"><a style="color:chartreuse">Ngủ ngon, đủ giấc</a></li>
+    
+  </div>
+  </div>
+  
+</div>
+
+
+<div class="d-flex align-items-center Menu-Main" style="background-color:#0045a7;height:60px;width:100%">
+  <div class=" Menu-H" style="margin-left: auto;"><a href="/" class="text-white mx-2" style="font-weight: bolder;">HOME</a></div>
+  <div class=" Menu-H"><a href="/changagoi" class="text-white mx-2" style="font-weight: bolder;">CHĂN GA GỐI</a></div>
+  <div class=" Menu-H"><a href="/nem" class="text-white mx-2" style="font-weight: bolder;">ĐỆM</a></div>
+  <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">BỘ SƯU TẬP</a></div>
+  <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">PHỤ KIỆN</a></div>
+  <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">KHUYẾN MÃI</a></div>
+  <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">TIN TỨC</a></div>
     {% if countProduct %}
-  <div class="nav-item Menu-H"><a href="/card" class="nav-link position-relative text-black" style="font-weight: bold;">GIỎ HÀNG <span class="position-absolute bg-primary " style="color: rgb(255, 255, 255);top:5px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
-    {{countProduct}}
-  </span></a></div>
+    <div class=" Menu-H"><a href="/card" class="position-relative mx-2" style="font-weight: bolder;color:chartreuse;">GIỎ HÀNG
+      <span class="position-absolute bg-primary " style="color: rgb(255, 255, 255);top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
+        {{countProduct}}
+      </span>
+    </a></div>
+  
     {% else %}
-    <div class=" Menu-H"><a class="text-black mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
+    <div class=" Menu-H"><a href="/card" class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
     {% endif %}
   {% if user.is_authenticated %}
   <div style="margin-left:auto;;" class="Menu-H"><a style="color:black;font-weight: bold;" class="">{{user.username}}</a></div>
@@ -27,17 +49,17 @@
 
 
 
-  <div class="nav-item ChanGaGoi-menu Menu-V" style="width:200px;"><a class="nav-link"><img class="img-fluid" src="{% static 'media/logo/LOGO_BED_LINH.png' %}"></a></div>
+  <div class="nav-item ChanGaGoi-menu Menu-V""><a class="m-4" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></div>
   {% if countProduct %}
-  <div style="margin-left: auto;" class="nav-item Menu-V"><a href="/card" class="nav-link position-relative text-black" style="font-weight: bold;">GIỎ HÀNG
-    <span class="position-absolute bg-primary" style="color: rgb(255, 255, 255);top:5px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
+  <div style="margin-left: auto;" class="nav-item Menu-V"><a href="/card" class="position-relative" style="font-weight: bold;color: chartreuse;">GIỎ HÀNG
+    <span class="position-absolute bg-primary" style="color: rgb(255, 255, 255);top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
     {{countProduct}}
     </span></a></div>
     {% else %}
-    <div style="margin-left: auto;"  class=" Menu-V"><a class="text-black mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
+    <div style="margin-left: auto;"  class=" Menu-V"><a class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
     {% endif %}
-  <div style="margin-left:auto" class="nav-item Menu-V">
-      <a onclick="menuToggle()" HREF="#" class="nav-link text-black">.......</a>
+  <div class="nav-item Menu-V">
+      <a onclick="menuToggle()" HREF="#" class="mx-4" style="font-weight: bold;color: chartreuse;padding-right: 10px;">MENU</a>
       <div onclick="menuToggle()" class="Menu-V-content-remove">
 
       </div>

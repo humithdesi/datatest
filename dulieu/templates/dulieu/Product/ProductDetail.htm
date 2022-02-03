@@ -4,8 +4,8 @@
 {% load tag_menu %}
 {% Menu %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/ProductDetail.css' %}">
-<div style='background-color: chartreuse; height: 100vh;'>
-<div class="p-4" style='background-color: chartreuse'>
+<div style='background-color: rgba(70, 207, 70, 0.747);'>
+<div class="p-4" >
     <div class='row '>
         <div class="col-lg-6 col-12"><img class="img-fluid" src="{% static 'media/logo/cardtest-1.jpg' %}"></div>
         <div class="col-lg-6 col-12">
@@ -80,6 +80,7 @@
             success: function() {
                alert('SẢN PHẨM ĐÃ THÊM VÀO GIỎ HÀNG, Về Trang Chủ')
                alertShow()
+               pageRedirect()
             }
         })
     }

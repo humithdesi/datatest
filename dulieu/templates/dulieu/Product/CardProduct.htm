@@ -18,7 +18,7 @@
         <div class="col-3"><img class="img-thumbnail" src="{% static 'media/logo/cardtest-1.jpg' %}"></div>
         <div class="col-6">
            <i class="fas fa-shopping-bag"></i>
-            <li  style="color: coral;">{{product.ProductName}}</li>
+            <li  style="color: coral;"><a href="/sanpham/{{product.ProductSlug}}">{{product.ProductName}}</a></li>
             <li>Giá: <span class="price">{{product.ProductPrice}}</span></li>
             <li>Số Lượng: <span class="number">{{product.ProductNumber}}</span></li>
             <li>Chất Liệu: <span>{{product.ProductChatLieu}}</span> </li>
@@ -28,16 +28,16 @@
             
         </div>
         <div class="col-3">
-            <li  style="color: coral; font-size: large;">$<span class="totalDetail" style="color: coral; font-size: large;"></span></li>
+            <li  style="color: coral; font-size: 1em;">$<span class="totalDetail" style="color: coral;"></span></li>
             <li><span>Miễn Phí Giao Hàng</span> </li>
-            <li ><a href="#" style="color: brown; text-decoration: none;">Xem Chi Tiết</a></li>
-            <br>
+            <li ><a href="/sanpham/{{product.ProductSlug}}" style="color: brown; text-decoration: none;">Xem Chi Tiết</a></li>
+            
             <form action="/card" method="get">
                 <select hidden class="form-select form-select-sm m-2" style="color: rgb(124, 41, 192);font-weight: bold;" name='ProductName'>
                     <option  value="{{product.ProductName}}">{{product.ProductName}}</option>
                 </select>
                
-            <button class="btn-sm btn-primary" type="submit"  ">delete</button>
+            <button class="btn-sm btn-primary" type="submit"  ">delete</button></li>
             </form>
         </div>
     </div>

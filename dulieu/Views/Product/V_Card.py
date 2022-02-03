@@ -20,10 +20,12 @@ def CardProduct(request):
             'ProductDoDay':ProductDoDay,
             'ProductThuongHieu':str(product.thuongHieu),
             'ProductKichThuoc':ProductKichThuoc,
-            'ProductChatLieu':str(product.chatLieu)
+            'ProductChatLieu':str(product.chatLieu),
+            'ProductSlug':str(product.slug)
             }
 
         products=request.session['card']
+        print(products)
         content={'products':products}
         return render(request, 'dulieu/Product/CardProduct.htm',content)
     else:
