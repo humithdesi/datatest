@@ -1,3 +1,4 @@
+from itertools import count
 from django.http import Http404
 from django.shortcuts import render,redirect
 
@@ -39,7 +40,8 @@ def CardProduct(request):
                 return redirect('cardpage')
             products=request.session['card'].values()
             content={'products':products}
-            
+            countProduct=len(request.session['card'])
+            print(countProduct)
             return render(request, 'dulieu/Product/CardProduct.htm',content)
         except:
             raise Http404()   

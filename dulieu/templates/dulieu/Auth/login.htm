@@ -27,7 +27,11 @@
   {% endif%}
 
 </form>
-
+{% if user %}
+có user{{user.username}}
+{% else %}
+không có user
+{% endif %}
 </div>
 
 

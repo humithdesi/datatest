@@ -1,10 +1,11 @@
+from pyexpat import model
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField
 from django.db.models.fields.files import ImageField
 from django.db.models.fields.related import ForeignKey
-
+from django.contrib.auth.models import User
 # Create your models here.
 class BoSuuTap(models.Model):
     name=models.CharField(max_length=100,unique=True)
@@ -65,3 +66,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+class Review(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
+    user=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,default=None,null=True)
+    comment=models.TextField(max_length=1000)
+    date=models.DateTimeField(auto_now_add=True)

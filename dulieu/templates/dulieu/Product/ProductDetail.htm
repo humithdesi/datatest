@@ -5,10 +5,25 @@
 {% Menu %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/ProductDetail.css' %}">
 <div>
-<div class="p-4" >
+<div class="container ProductDetail" >
     <div class='row '>
-        <div class="col-lg-5 col-12 d-flex justify-content-center align-items-center"><img class="img-fluid" src="{% static 'media\IMAGE_PTS\sizemobi1.jpg' %}"></div>
-        <div class="col-lg-7 col-12">
+
+        <div class="col-lg-3 SanPhamBanChay">
+            <div class="SanPhamBanChayContent">
+                <ul class="list-group">
+                    <li class="list-group-item active" >SẢN PHẨM BÁN CHẠY</li>
+                    {% for i in products %}
+                    <li class="list-group-item " ><a href="/sanpham/{{i.slug}}" style="display: block;">{{i.name}}</a></li>
+                    {% endfor %}
+                  </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-12 d-flex justify-content-center ">
+            <img style="width: 100%; height: 25rem; object-fit: cover;" class="img" src="{% static 'media\IMAGE_PTS\sizemobi1.jpg' %}">
+        </div>
+
+        <div class="col-lg-5 col-12">
             <h3 id='ProductName' style="color: rgb(124, 41, 192);" class=''>{{product.name}}</h3>
             <li>Suspendisse quos? Tempus cras iure temporibus?
             Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</li>
@@ -36,13 +51,63 @@
             </div>        
             <button class="btn btn-primary mt-1 Addtocard" onmouseup="clickAddToCard()">Add To Card</button>
         </div>
+
     </div>
+    <div class='row mt-3'>
+        <div class="col-lg-3 SanPhamBanChay"></div>
+        <div class="col-lg-9 col-12">
+            <h2 style="color:red">Đánh Giá Sản Phẩm: </h2>
+            {% if user.is_authenticated %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="">
+                    <textarea class="p-2" style="border-radius: 99px;width: 100%;height: 40px;"
+                    id='comment'
+                    name="comment"
+                    placeholder="Đánh Giá Của Bạn" ></textarea>
+                </div>
+                <input class="btn btn-primary" style="width: 100%;" type="submit" value="ĐĂNG NHẬN XÉT" onclick="return KiemTraComment()">
+            </form>
+            {% else %}
+            <a href="/login" class="btn btn-primary">Đăng Nhập Để Nhận Xét</a>
+            {% endif %}
+            <div class="container" style="background-color: whitesmoke;padding-top: 1rem;">
+                
+                
+                {% for review in comments %}
+                <div class="m-2">
+                    <div class="shadow" style="display: inline-block;border-radius: 15px; background-color: white;">
+                        <div class="p-1" style="border-bottom:1px solid rgba(193, 223, 202, 0.63);">
+                            <img style="width:30px;height: 30px; border-radius: 30px;" src="{% static 'media\IMAGE_PTS\sizemobi1.jpg' %}" class="" alt="...">
+                            <strong class="me-auto">{{review.user}}</strong>
+                            <small class="text-muted">{{review.date}}</small>
+                           
+                          </div>
+                          <p class="p-2">{{review.comment}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                
+             
+              </div>
+
+            
+            
+            
+            
+            
+        </div>
+
+    </div>
+
 </div>
 
 <div id='alert' class="alertNone alert alert-warning mt-3" style="text-align: center;" role="alert">
     <strong>SẢN PHẨM ĐÃ ĐƯỢC THÊM VÀO GIỎ HÀNG, <a class="text-black" style="text-decoration: none;" href="#">VỀ TRANG CHỦ</a></strong>
   </div>
-</div>  
+</div>
+
 <script>
      function pageRedirect() {
         window.location.replace("/nem");
@@ -84,6 +149,25 @@
             }
         })
     }
+
+   function KiemTraComment(){
+       comment=$('#comment').val()
+       if (comment==''){
+        alert('Vui lòng Nhập Nhận Xét')
+        return false
+           
+       }
+       else{
+        alert('Nhận Xét Của Bạn Đã Được Đăng Thành Công')
+        return true}
+   }
+   $("textarea").each(function () {
+  this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;width:100%;border-radius:20px");
+}).on("input", function () {
+  this.style.height = "auto";
+  this.style.height = (this.scrollHeight) + "px";
+});
+   
 
 </script>
 {% endblock %}

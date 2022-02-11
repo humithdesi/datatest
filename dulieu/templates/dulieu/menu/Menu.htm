@@ -39,8 +39,8 @@
     <div class=" Menu-H"><a href="/card" class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
     {% endif %}
   {% if user.is_authenticated %}
-  <div style="margin-left:auto;;" class="Menu-H"><a style="color:black;font-weight: bold;" class="">{{user.username}}</a></div>
-  <div  class="nav-item login-logout Menu-H"><a HREF="/logout" class="nav-link">ĐĂNG XUẤT</a></div>
+  <div style="margin-left:auto;;" class="Menu-H"><a style="color:yellow;font-weight: bolder;" class="">{{user.username}}</a></div>
+  <div  class="nav-item login-logout Menu-H"><a style="font-weight: bolder" HREF="/logout" class="nav-link">ĐĂNG XUẤT</a></div>
   {% else %}
   <div style="margin-left:auto" class="Menu-H"><a class="text-white mx-2" style="font-weight: bolder;" HREF="/resign">ĐĂNG KÝ</a></div>
   <div  class="nav-item login-logout Menu-H"><a class="text-white mx-2" style="font-weight: bolder;" HREF="/login">ĐĂNG NHẬP</a></div>
