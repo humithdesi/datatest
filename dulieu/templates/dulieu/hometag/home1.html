@@ -4,7 +4,7 @@
 {% load tag_HomeSlide %}
 {% load tag_menu %}
 {% Menu %}
-
+{% load tag_TinTuc %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Product/CardProduct.css' %}">
 
 <div class='container Home-Slide-1'>
@@ -16,5 +16,7 @@
 <div class='Home-Slide-4' >
   {% homeslide3 %}
 </div>
-
+<div>
+  {% TinTuc %}
+</div>
 {% endblock %}
