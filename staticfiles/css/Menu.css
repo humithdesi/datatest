@@ -1,10 +1,21 @@
 a{text-decoration: none;}
 .Menu-V{display:none}
-.nav-link:hover{color:white}
-.nav-link{color:white}
-.nav-item{padding:0px}
+
 .ChanGaGoi-menu{margin-left: 80px;}
 .login-logout{margin-right:100px}
+.GioHang{color:white;}
+.GioHang:hover{color:white}
+.GioHang-Active{color:yellow}
+.GioHang-Active:hover{color:yellow}
+.NumBerGioHang{background-color:#0045a7;color:#0045a7}
+.NumBerGioHang-Active{background-color:#3d86ebd0;color:white}
+
+
+
+
+
+
+
 @media only screen and (max-width: 1100px){
   .Menu-Main{position: fixed;left:0;top:0;z-index:1;}
 

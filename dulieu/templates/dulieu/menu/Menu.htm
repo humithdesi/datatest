@@ -28,19 +28,17 @@
   <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">PHỤ KIỆN</a></div>
   <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">KHUYẾN MÃI</a></div>
   <div class=" Menu-H"><a class="text-white mx-2" style="font-weight: bolder;">TIN TỨC</a></div>
-    {% if countProduct %}
-    <div class=" Menu-H"><a href="/card" class="position-relative mx-2" style="font-weight: bolder;color:chartreuse;">GIỎ HÀNG
-      <span class="position-absolute bg-primary " style="color: rgb(255, 255, 255);top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
-        {{countProduct}}
-      </span>
-    </a></div>
+  <div class=" Menu-H">
+  <a class="mx-2 GioHang" style="position:relative;font-weight: bolder;">GIỎ HÀNG
+  <span class="position-absolute NumBerGioHang" style="top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
+      test
+  </span></a></div>
+   
   
-    {% else %}
-    <div class=" Menu-H"><a href="/card" class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
-    {% endif %}
+    
   {% if user.is_authenticated %}
-  <div style="margin-left:auto;;" class="Menu-H"><a style="color:yellow;font-weight: bolder;" class="">{{user.username}}</a></div>
-  <div  class="nav-item login-logout Menu-H"><a style="font-weight: bolder" HREF="/logout" class="nav-link">ĐĂNG XUẤT</a></div>
+  <div style="margin-left:auto;" class="Menu-H"><a style="color:yellow;font-weight: bolder;" class="mx-2">{{user.username}}</a></div>
+  <div  class=" login-logout Menu-H"><a class="text-white mx-2" style="font-weight: bolder" HREF="/logout" >ĐĂNG XUẤT</a></div>
   {% else %}
   <div style="margin-left:auto" class="Menu-H"><a class="text-white mx-2" style="font-weight: bolder;" HREF="/resign">ĐĂNG KÝ</a></div>
   <div  class="nav-item login-logout Menu-H"><a class="text-white mx-2" style="font-weight: bolder;" HREF="/login">ĐĂNG NHẬP</a></div>
@@ -50,14 +48,12 @@
 
 
   <div class="nav-item ChanGaGoi-menu Menu-V""><a href="/" class="m-4" style="font-weight: bolder;color:chartreuse;">BEDLINH</a></div>
-  {% if countProduct %}
-  <div style="margin-left: auto;" class="nav-item Menu-V"><a href="/card" class="position-relative" style="font-weight: bold;color: chartreuse;">GIỎ HÀNG
-    <span class="position-absolute bg-primary" style="color: rgb(255, 255, 255);top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
-    {{countProduct}}
+ 
+    <div style="margin-left: auto;"  class=" Menu-V"><a href="/card" class="GioHang mx-2" style="font-weight: bolder;">GIỎ HÀNG
+      <span class="position-absolute NumBerGioHang" style="top:-15px;font-size: small;border-radius: 999px;font-weight: bold;height: 20px;width: 20px;text-align: center;line-height:px;" >
+        test
     </span></a></div>
-    {% else %}
-    <div style="margin-left: auto;"  class=" Menu-V"><a href="/card" class="text-white mx-2" style="font-weight: bolder;">GIỎ HÀNG</a></div>
-    {% endif %}
+    
   <div class="nav-item Menu-V">
       <a onclick="menuToggle()" HREF="#" class="mx-4" style="font-weight: bold;color: chartreuse;padding-right: 10px;">MENU</a>
       <div onclick="menuToggle()" class="Menu-V-content-remove">
@@ -86,4 +82,36 @@ $('.Menu-V-content').toggleClass('Menu-V-content-active')
 $('.Menu-V-content a').toggleClass('Menu-V-content-active a')
 $('.Menu-V-content-remove').toggleClass('Menu-V-content-remove-active')
 }
+
+function loadApi()
+        {
+         // lấy giá trị trong input có id là q. <input id='q' type='text'>
+        $.get( "/apisession1" ,// Đường dẫn url
+            // method get gửi giá trị đi. VD:GET /dichvu?q=sdfds, sdfds là giá trị gửi đi có name là q
+
+             function(data) {    // nếu gửi thành công thì gọi lại. data là dữ liệu nhận được từ địa chỉ của url
+                    count=data['count']
+                    session=data['session']['Nệm Lò Xo 021']['ProductName']
+                    console.log(session)
+                    
+                    if(count != ''){
+                      numberGioHang=$('.NumBerGioHang')
+                      GioHang=$('.GioHang')
+                      GioHang.addClass('GioHang-Active')
+                      numberGioHang.addClass('NumBerGioHang-Active')
+                      numberGioHang.text(count)
+                    }
+                    else{
+                      numberGioHang.removeClass('NumBerGioHang-Active')
+                      GioHang.removeClass('.GioHang-Active')
+                    }
+                    
+                    
+
+                    });
+        }
+
+loadApi()
+
+
 </script>

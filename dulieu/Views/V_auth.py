@@ -31,7 +31,6 @@ def LoginPage(request):
 from django.contrib.auth import logout
 def LogOutPage(request):
     logout(request)
-    request.session['card']={}
     return redirect('loginpage')
 
 

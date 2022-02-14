@@ -22,7 +22,8 @@ from django.conf.urls import handler404,handler403,handler500
 from dulieu.Views.V_Erro import Error
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('dulieu.urls'))
+    path('',include('dulieu.urls')),
+    path('summernote/', include('django_summernote.urls'))
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

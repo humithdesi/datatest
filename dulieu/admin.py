@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .Models.M_Product import BoSuuTap,ThuongHieu,LoaiGa,LoaiNem,ChatLieu,KichThuoc,DoDay,Product,Review
 from .Models.M_Order import Order
+from .Models.M_TinTuc import TinTuc
 # Register your models here.
 class TagAdminOrder(admin.ModelAdmin):
     list_display = ['phone', 'product','quantity','date']
@@ -26,6 +27,17 @@ class TagReview(admin.ModelAdmin):
     list_display = ['product','comment','date']
     list_filter = ['user','date','product']
     search_fields = ['user','date','product']
+
+from django_summernote.admin import SummernoteModelAdmin
+class TinTucAdmin(SummernoteModelAdmin):
+    # displaying posts with title slug and created time
+    list_display = ('title', 'slug',)
+    list_filter = ("title",)
+    search_fields = ['title', 'content']
+    # prepopulating slug from title
+    prepopulated_fields = {'slug': ('title', )}
+    summernote_fields = ('content', )
+
 admin.site.register(BoSuuTap,SlugAdmin)
 admin.site.register(ThuongHieu,SlugAdmin)
 admin.site.register(LoaiGa,SlugAdmin)
@@ -35,3 +47,4 @@ admin.site.register(KichThuoc,SlugAdmin)
 admin.site.register(DoDay,SlugAdmin)
 admin.site.register(Product,TagAdmin)
 admin.site.register(Review,TagReview)
+admin.site.register(TinTuc,TinTucAdmin)
