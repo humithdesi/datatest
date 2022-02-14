@@ -91,7 +91,8 @@ function loadApi()
 
              function(data) {    // nếu gửi thành công thì gọi lại. data là dữ liệu nhận được từ địa chỉ của url
                     count=data['count']
-                    session=data['session']['Nệm Lò Xo 021']['ProductName']
+                    if (data['count'] !=''){session=data['session']}
+                    
                     console.log(session)
                     
                     if(count != ''){
