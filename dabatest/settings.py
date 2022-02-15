@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_summernote',
     'rest_framework',
+    'boto3'
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,17 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#cài đặt bộ lưu trữ amazon S3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID='AKIA3OGGS6OI4IAIQN4Y'       #biến môi trường
+AWS_SECRET_ACCESS_KEY='iwYOeRNh7axZNrLPo7JDLW4PmiyX7vuj4LBAH+lV'   #biến môi trường
+AWS_STORAGE_BUCKET_NAME='grouppicture'  #Tên nhóm lưu trữ Amazon Web Services của bạn, dưới dạng một chuỗi.
+AWS_QUERYSTRING_AUTH=False #Cài đặt AWS_QUERYSTRING_AUTHđể Falsexóa xác thực tham số truy vấn khỏi các URL đã tạo.
+
+
+
+
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.

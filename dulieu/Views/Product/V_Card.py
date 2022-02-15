@@ -22,7 +22,8 @@ def CardProduct(request):
             'ProductThuongHieu':str(product.thuongHieu),
             'ProductKichThuoc':ProductKichThuoc,
             'ProductChatLieu':str(product.chatLieu),
-            'ProductSlug':str(product.slug)
+            'ProductSlug':str(product.slug),
+            'ProductImage':str(product.image)
             }
 
         products=request.session['card']
