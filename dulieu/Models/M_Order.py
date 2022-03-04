@@ -1,5 +1,4 @@
 from datetime import datetime
-from email.headerregistry import Address
 import re
 from django.db import models
 

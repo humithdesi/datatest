@@ -2,9 +2,6 @@ from pyexpat import model
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
-from django.db.models.fields import CharField
-from django.db.models.fields.files import ImageField
-from django.db.models.fields.related import ForeignKey
 from django.contrib.auth.models import User
 # Create your models here.
 class BoSuuTap(models.Model):
