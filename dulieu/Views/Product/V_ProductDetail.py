@@ -1,8 +1,7 @@
-from itertools import count
+
 import re
 from django.shortcuts import render,redirect
 from django.http import Http404
-from platformdirs import user_cache_dir
 from ...Models.M_Product import Product,Review,LikeProduct
 from django.http import HttpResponse,Http404,JsonResponse
 
