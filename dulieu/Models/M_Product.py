@@ -71,3 +71,9 @@ class Review(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,default=None,null=True)
     comment=models.TextField(max_length=1000)
     date=models.DateTimeField(auto_now_add=True)
+
+class LikeProduct(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='likes')
+    user=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,default=None,null=True)
+    like=models.BooleanField(default=False)
+    date=models.DateTimeField(auto_now_add=True)

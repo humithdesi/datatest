@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .Models.M_Product import BoSuuTap,ThuongHieu,LoaiGa,LoaiNem,ChatLieu,KichThuoc,DoDay,Product,Review
+from .Models.M_Product import BoSuuTap,ThuongHieu,LoaiGa,LoaiNem,ChatLieu,KichThuoc,DoDay,Product,Review,LikeProduct
 from .Models.M_Order import Order
 from .Models.M_TinTuc import TinTuc
 # Register your models here.
@@ -48,3 +48,4 @@ admin.site.register(DoDay,SlugAdmin)
 admin.site.register(Product,TagAdmin)
 admin.site.register(Review,TagReview)
 admin.site.register(TinTuc,TinTucAdmin)
+admin.site.register(LikeProduct)

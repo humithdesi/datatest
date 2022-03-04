@@ -28,3 +28,40 @@ li{list-style-type: none;}
     .Addtocard{width: 100%;}
 }
 .alertNone{display: none;}
+
+
+
+/* ĐĂNG NHẬP TÀI KHOẢN TRONG TRANG HIỆN TẠI*/
+.SizeBtn{width: 205px;} /* NÚT LOGIN VÀ NÚT CLOSE */
+.WarpDisplayLogin{  /* VÙNG BAO PHỦ BÊN NGOÀI BOX LOGIN*/
+    display:none;
+    position: fixed;
+    opacity: 20%;
+    top:0;
+    background-color: blue;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
+.Box-Login{ /* BOX LOGIN*/
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: white;
+    padding: 2em;
+    width: 30rem ;
+    z-index: 3;   
+}
+.login-active{ /* SHOW  BOX LOGIN */
+    display:block
+}
+@media only screen and (max-width: 576px){
+    .Box-Login{
+        width: 22rem;
+    }
+
+    .SizeBtn{width: 125px;}
+}

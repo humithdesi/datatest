@@ -12,6 +12,9 @@ from .Views.Product.V_Card import CardProduct
 from .Views.Product.V_Order import OrderProduct
 from .Views.API.V_Apisession import ApiSession,ApiSession1
 
+from .Views.TESTFILE.testfilelist import testfileList
+from .Views.TESTFILE.testfiledetail import testfileDetail
+app_name = 'bedlinh'
 urlpatterns = [
     path('',HomePage,name='homepage'),
     path('test',TestSlide,name='testpage'),
@@ -22,10 +25,14 @@ urlpatterns = [
     path('nem',Nem,name='nempage'),
     path('thuonghieu/<slug:slug>',ThuongHieu,name='thuonghieupage'),
     path('bosuutap/<slug:slug>',BoSuuTap,name='bosuutappage'),
-    path('sanpham/<slug:slug>',ProductDetail,name='productdetail'),
+    path('sanpham/<slug:slug>',ProductDetail,name='productdetai'),
     path('card',CardProduct,name='cardpage'),
     path('order',OrderProduct,name='oderpage'),
     path('apisession',ApiSession.as_view(),name='apisession'),
     path('apisession1',ApiSession1,name='apisession1'),
+
+    path('testfilelist',testfileList,name='testfilelist'),
+    path('testfilelist/<slug:slug>',testfileDetail,name='testfiledetail'),
+
 
 ]

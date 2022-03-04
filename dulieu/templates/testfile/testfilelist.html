@@ -1,0 +1,36 @@
+{% extends 'base.htm' %}
+{% block testfilelist %}
+
+    {% for product in products %}
+    <div class='cha'>
+    <p>{{product.slug}}</p>
+    <p class='test'>
+        testfilelist/{{product.slug}}
+    </p>
+    <button class="buttonclick">post</button>
+    </div>
+  
+    {% endfor %}
+
+    <script>
+        $(document).ready(function(){
+          
+          $(".buttonclick").click(function(){
+            var1=$(this).closest('.cha').find('.test').text()
+            
+            console.log(var1)
+            $.ajax({
+            type: 'POST',
+            url: var1,
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+            success: function() {
+               alert('SẢN PHẨM ĐÃ THÊM VÀO GIỎ HÀNG, Về Trang Chủ')
+            }
+        })
+
+          });
+          
+           
+        });
+        </script>
+{% endblock %}

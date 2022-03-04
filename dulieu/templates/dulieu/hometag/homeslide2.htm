@@ -9,7 +9,10 @@
             {% for product in products %}
             <div class="col d-flex justify-content-center mt-2"  >
                 <div class="card m-1" style="width: 13rem;border-radius: 1em;height:23rem;position: relative;" >
-                  <img style="height: 180px; border-radius:1em 1em 0 0 ;" src="https://grouppicture.s3-ap-southeast-1.amazonaws.com/{{product.image}}" class="card-img-top" alt="...">
+                  <img onload="loadImage()" style="height: 180px; border-radius:1em 1em 0 0 ;" src="https://grouppicture.s3-ap-southeast-1.amazonaws.com/{{product.image}}" class="card-img-top Image" alt="...">
+                  <div class="lds">
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                  </div>
                   <div class="p-2">
                     <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
                     <h6 style="margin-top: -0.2em;color: coral;">${{product.price}}đ</h6>
@@ -31,7 +34,10 @@
             {% for product in products %}
             <div class="col d-flex justify-content-center mt-2"  >
                 <div class="card m-1" style="width: 13rem;border-radius: 1em;height:23rem;position: relative;" >
-                  <img style="height: 180px; border-radius:1em 1em 0 0 ;" src="https://grouppicture.s3-ap-southeast-1.amazonaws.com/{{product.image}}" class="card-img-top" alt="...">
+                  <img onload="loadImage()" style="height: 180px; border-radius:1em 1em 0 0 ;" src="https://grouppicture.s3-ap-southeast-1.amazonaws.com/{{product.image}}" class="card-img-top Image" alt="...">
+                  <div class="lds">
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                  </div>
                   <div class="p-2">
                     <h6 style="color: rgba(27, 29, 148, 0.712);font-weight: bold">{{ product.name }}</h5>
                     <h6 style="margin-top: -0.2em;color: coral;">${{product.price}}đ</h6>
@@ -62,5 +68,12 @@
     function nextProduct(){
         $( ".ProductMovie" ).toggleClass("Product1-Hidden")
     }
+    
+  function loadImage(){
+    $('.lds').addClass('active')
+    $('.lds-roller').addClass('active')
+    $('.Image').removeClass('Image')
+  }
+
     
 </script>

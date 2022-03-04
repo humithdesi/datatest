@@ -21,11 +21,11 @@ a{text-decoration: none;}
 
  
   .Menu-H{display:none}
-  .Menu-V{display:block;position:relative;}
+  .Menu-V{display:block;position:relative;padding: 20px 0px;}
   .Menu-V-content{z-index:1;
       visibility:hidden;
       position:absolute;
-      height:100vh;top:40px;
+      height:100vh;top:65px;
       width: 0px;
       right:0;
       background-color:white;}
@@ -34,8 +34,9 @@ a{text-decoration: none;}
                     padding: 10px;
                     padding-left: 70px;
                     height: 0px;
-                    transition: 0.5s;}
-  .Menu-V-content a:hover {background-color:yellow}
+                    transition: 0.5s;
+                  color: black;}
+  .Menu-V-content a:hover {background-color:rgb(243, 243, 234)}
 }
 
 @media only screen and (max-width: 1350px){
@@ -69,14 +70,27 @@ a{text-decoration: none;}
 
 }
 @keyframes fadeax {
-    from { width:0px;
-
-     }
-      to { width:300px;
-      }
+  0%   {width: 0px;}
+  70%   {width: 330px;}
+  80%   {width: 290px;}
+  90%   {width: 320px;}
+  100% {width:300px}
 
 }
 
-.Menu-V-content-active{visibility:visible;width:300px;animation : fadeax 0.3s;}
+.Menu-V-content-active{visibility:visible;width:300px;animation : fadeax 0.5s;}
 .Menu-V-content-active a{display: block; height:40px;visibility: visible; transition: 0.5s;text-decoration: none;font-weight: bold;}
 .Menu-V-content-remove-active{display: block;}
+
+.itemLink {color: white;
+  display: block;
+  padding: 20px 0;
+  transition: 0.3s;
+}
+.itemLink:hover{
+  padding: 20px 20px;
+  background-color: wheat;
+  color: black;
+  transition:0.3s;
+
+}

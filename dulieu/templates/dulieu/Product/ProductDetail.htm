@@ -56,8 +56,11 @@
     <div class='row mt-3'>
         <div class="col-lg-3 SanPhamBanChay"></div>
         <div class="col-lg-9 col-12">
+
             <h2 style="color:red">Đánh Giá Sản Phẩm: </h2>
             {% if user.is_authenticated %}
+            <button onmouseup="clickLike()" class="btn btn-primary like">Like</button>
+            <button onmouseup="clickLike()" class="btn btn-secondary liked">Đã Like</button><a id='idLike'>{{likes}}</a>
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="">
@@ -69,7 +72,8 @@
                 <input class="btn btn-primary" style="width: 100%;" type="submit" value="ĐĂNG NHẬN XÉT" onclick="return KiemTraComment()">
             </form>
             {% else %}
-            <a href="/login" class="btn btn-primary">Đăng Nhập Để Nhận Xét</a>
+            {{likes}}
+            <a onmouseup="clickLoginShow()" class="btn btn-primary">Đăng Nhập Để Nhận Xét</a>
             {% endif %}
             <div class="container" style="background-color: whitesmoke;padding-top: 1rem;">
                 
@@ -106,6 +110,29 @@
 <div id='alert' class="alertNone alert alert-warning mt-3" style="text-align: center;" role="alert">
     <strong>SẢN PHẨM ĐÃ ĐƯỢC THÊM VÀO GIỎ HÀNG, <a class="text-black" style="text-decoration: none;" href="#">VỀ TRANG CHỦ</a></strong>
   </div>
+</div>
+
+
+<!-- ĐĂNG NHẬP TRONG TRANG HIỆN TẠI -->
+
+<div onmouseup="clickRemoveBoxLogin()" class='WarpDisplayLogin'></div>
+    <div class="Box-Login shadow">
+    <div class="form-group">
+    <small id='result' class="form-text text-muted"></small>
+
+      <label style="font-weight: bolder;">TÊN ĐĂNG NHẬP</label>
+      <input id='username' type="text" class="form-control"  placeholder="UserName" style="width: 100%;">
+      <small id="usernameHelp" class="form-text text-muted">không chứa khoảng trống và ký tự đặc biệt</small>
+    </div>
+    <div class="form-group">
+      <label style="font-weight: bolder;">Mật Khẩu</label>
+      <input id='password' type="password" class="form-control" placeholder="********" style="width: 100%;">
+      <small id="usernameHelp" class="form-text text-muted">Mật khẩu ít nhất 8 ký tự, chứa cả chữ và số</small>
+    </div>
+    <div class="mt-2 d-flex justify-content-between">
+    <button onmouseup="clickLoginPost()" class="btn btn-warning SizeBtn" >Login</button>
+    <button onmouseup="clickRemoveBoxLogin()" class="btn btn-primary SizeBtn " >Close</button>
+    </div>
 </div>
 
 <script>
@@ -168,6 +195,58 @@
   this.style.height = (this.scrollHeight) + "px";
 });
    
+function clickLike(){
+        $.ajax({
+            type: 'POST',
+            url: '',
+            data: { 'like':'like',
+            csrfmiddlewaretoken: '{{ csrf_token }}' },
+            success: function(data) {
+               alert('SẢN PHẨM ĐÃ THÊM VÀO GIỎ HÀNG, Về Trang Chủ')
+
+               console.log(data.like)
+               $('#idLike').text(data.like)
+            }
+        })
+    }
+
+// post page LOGIn
+    function loadPageCurrent() {
+        window.location.replace("");// trả về page hiện tại
+    }
+    function clickLoginShow(){
+        $('.WarpDisplayLogin').addClass('login-active')// click hiện box Login 
+        $('.Box-Login').addClass('login-active')
+    }
+    function clickRemoveBoxLogin(){
+        $('.WarpDisplayLogin').removeClass('login-active')// click xóa box Login
+        $('.Box-Login').removeClass('login-active')
+    }
+    function clickLoginPost(){
+        var username= $('#username').val() // clich post dữ liệu login đến page login để đăng nhập
+        var password= $('#password').val()
+        $.ajax({
+            type: 'POST',
+            url: '/login',
+            data: { 'username':username,'password':password,
+            csrfmiddlewaretoken: '{{ csrf_token }}' },
+            success: function(data) {
+               
+               
+               var content = $(data).find("#error").text();// tìm id erro lấy text
+               if(content ==''){
+                console.log(content)
+                clickRemoveBoxLogin()
+                alert('ĐĂNG NHẬP THÀNH CÔNG')
+                loadPageCurrent()
+
+               }
+               else{$("#result").text(content)} // thêm text vào id result
+                
+            }
+        })
+    }
 
 </script>
+
 {% endblock %}

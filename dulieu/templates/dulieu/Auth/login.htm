@@ -19,7 +19,7 @@
 
   <button type="submit" class="btn btn-primary ">Đăng nhập Tài Khoản</button>
    {% if error is not None %}
-  <p>  <small  class="form-text text-muted">{{error}}</small></p>
+  <p>  <small id='error' class="form-text text-muted">{{error}}</small></p>
   {% endif%}
 
   {% if succes is not None %}
@@ -34,6 +34,15 @@ không có user
 {% endif %}
 </div>
 
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+
+<script type="text/javascript">
+jQuery(document).ready(function () {
+  jQuery('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 
 
 <style>

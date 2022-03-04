@@ -31,7 +31,7 @@ def LoginPage(request):
 from django.contrib.auth import logout
 def LogOutPage(request):
     logout(request)
-    return redirect('loginpage')
+    return redirect('/login') 
 
 
 def ResignPage(request):

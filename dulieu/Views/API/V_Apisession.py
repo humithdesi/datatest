@@ -19,11 +19,14 @@ class ApiSession(APIView):
 
 def ApiSession1(request):
     if request.method == 'GET':
-        session=request.session['card']
-        if session:
-            count=len(session)
-        else:
-            count=''    
-        dichvu={'count':count,'session':session}
-        todo=count
-        return JsonResponse(dichvu)   
+        try:
+            session=request.session['card']
+            if session:
+                count=len(session)
+            else:
+                count=''    
+            dichvu={'count':count,'session':session}
+            todo=count
+            return JsonResponse(dichvu)
+        except:
+            return JsonResponse({'card':'Không có'})
