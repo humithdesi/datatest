@@ -1,1 +1,0 @@
-web: gunicorn dabatest.wsgi --log-file -
